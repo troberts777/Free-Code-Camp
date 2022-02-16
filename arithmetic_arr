@@ -1,3 +1,12 @@
+import numpy as np
+import re
+
+lst1 = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
+lst2 = ["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"]
+
+
+
+
 def arithmetic_arranger(list_of_strings, Answers = False):
   # future ideas, add / or *, use floats instead of integers
 
@@ -58,3 +67,8 @@ def arithmetic_arranger(list_of_strings, Answers = False):
         print("\n\n   ", top_row[i], "\n","- ",abs(bot_row[i]), "\n------------")
       if Answers == True:
         print("   ", ans[i], "\n\n")
+        
+        
+        
+        
+arithmetic_arranger2(lst3, True)        
