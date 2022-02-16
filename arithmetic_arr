@@ -1,12 +1,6 @@
-import numpy as np
-import re
-
 def arithmetic_arranger(list_of_strings, Answers = False):
   # future ideas, add / or *, use floats instead of integers
-  ans = []
-  top_row = []
-  bot_row = []
-  
+
   # use regex to error check the list of strings 
   probs_with_los = 0
 
@@ -17,7 +11,7 @@ def arithmetic_arranger(list_of_strings, Answers = False):
       if is_match == True:
         probs_with_los += 1
 
-  # if a problem with the lsit raise exception
+  # if a problem with the list raise exception
   if probs_with_los < 1:
     print("list of strings check is good")
   else:
@@ -28,6 +22,9 @@ def arithmetic_arranger(list_of_strings, Answers = False):
   for i in list_of_strings: 
     if "+" in i: 
       arr_plus = []
+      ans = []
+      top_row = []
+      bot_row = []
       x = i.split("+")
       arr_plus.append(x)
       # convert everything to integers
@@ -35,9 +32,17 @@ def arithmetic_arranger(list_of_strings, Answers = False):
       top_row.append(arr_plus[0][0])
       bot_row.append(arr_plus[0][1])
       ans.append(np.sum(arr_plus))
+      # Print the Results
+      for i in range(0,len(top_row)):
+        print("\n\n   ", top_row[i], "\n","+ ",bot_row[i], "\n------------")
+      if Answers == True:
+        print("   ", ans[i], "\n\n")
 
-    if "-" in i:
+    elif "-" in i:
       arr_minus = []
+      ans = []
+      top_row = []
+      bot_row = []
       x = i.split("-")
       arr_minus.append(x)
       # convert everything to integers
@@ -48,9 +53,8 @@ def arithmetic_arranger(list_of_strings, Answers = False):
       top_row.append(arr_mins[0][0])
       bot_row.append(arr_mins[0][1])
       ans.append(np.sum(arr_mins))
-
-  # Print the results
-  for i in range(0,len(top_row)):
-    print("\n\n  ", top_row[i], "\n"," ",bot_row[i], "\n----------")
-    if Answers == True:
-      print("  ", ans[i], "\n\n")
+      # Print the Results
+      for i in range(0,len(top_row)):
+        print("\n\n   ", top_row[i], "\n","- ",abs(bot_row[i]), "\n------------")
+      if Answers == True:
+        print("   ", ans[i], "\n\n")
